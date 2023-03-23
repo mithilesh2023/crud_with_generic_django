@@ -1,0 +1,47 @@
+{% extends "parent.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="d-flex justify-content-between">
+                <h2>Manage Records</h2>
+                <form action="">
+                    <input type="search" name="search" placeholder="search..." >
+                    <input type="submit" class="btn btn-warning ">
+                </form>
+            </div>
+            <table class="table border border-black table-dark table-hover">
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">name</th>
+                    <th scope="col">email</th>
+                    <th scope="col">contact</th>
+                    <th scope="col">city</th>
+                    <th scope="col">action</th>
+                </tr>
+                <!-- this is loop for area  -->
+                {% for student in object_list %}
+                <tr>
+                    <td scope="row">{{student.id}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.email}}</td>
+                    <td>{{student.contact}}</td>
+                    <td>{{student.city}}</td>
+                    <td>
+                        <a href="{% url 'delete' student.id %}" class="btn btn-danger">Del</a>
+                        <a href="{% url 'edit' student.id %}" class="btn btn-warning">edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

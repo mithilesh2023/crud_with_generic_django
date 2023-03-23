@@ -1,0 +1,11 @@
+{% extends "parent.html" %}
+{% block content %}
+
+    <form action="" method="post">
+    {% load crispy_forms_tags %}
+        {%csrf_token %}
+        {{form|crispy}}
+        {% comment %} {{form|crispy}} {% endcomment %}
+        <input type="submit">
+    </form>
+{% endblock content %}

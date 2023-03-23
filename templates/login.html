@@ -1,0 +1,18 @@
+{% extends "parent.html" %}
+{% block content %}
+<div class="container  w-25 border border-black rounded shadow p-2  mt-2">
+
+    <div class="row">
+        <div class="col">
+            <form action="" method="post">
+                <h3 class="px-5">Login Page</h3>
+                {% load crispy_forms_tags %}
+                    {%csrf_token %}
+                    {{form|crispy}}
+                    <input type="submit" class="btn btn-success w-100">
+                </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
