@@ -13,9 +13,9 @@ class StudentView(ListView):
     model=StudentRecord
     template_name="./home.html"
 
-    def get(self,request):
-
-        return super().get(request)
+    def get_queryset(self):
+        search=self.request.GET.get("search","")
+        return StudentRecord.objects.filter(name__icontains=search)
 
 
 
